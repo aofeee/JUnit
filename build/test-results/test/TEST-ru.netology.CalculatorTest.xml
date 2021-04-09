@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.netology.CalculatorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-04-09T20:19:38" hostname="aofeee" time="0.022">
+  <properties/>
+  <testcase name="dontEquals()" classname="ru.netology.CalculatorTest" time="0.022"/>
+  <system-out><![CDATA[Начало тестов
+Тесты завершены
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
