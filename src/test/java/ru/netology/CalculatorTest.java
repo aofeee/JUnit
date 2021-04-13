@@ -8,8 +8,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
 
+    static Calculator calc = new Calculator();
+
     @BeforeAll
-    static void Before() {
+    public static void beforeAll() {
         System.out.println("Начало тестов");
     }
 
@@ -19,42 +21,38 @@ class CalculatorTest {
         System.out.println("Тесты завершены");
     }
 
+
     @Test
     void sum() {
-        Calculator calc = new Calculator();
         System.out.println("Тест сложения");
-        try {
-            int actual = calc.sum(50, 50);
-            assertEquals(100, actual);
-        } catch (ArithmeticException e) {
-            e.getMessage();
-        }
-
+        int actual = calc.sum(50, 50);
+        assertEquals(100, actual);
     }
 
     @Test
     void div() {
-        Calculator calc = new Calculator();
         System.out.println("Тест деления");
-        try {
-            int actual = calc.div(12, 0);
-            assertEquals(0, actual);
-        } catch (ArithmeticException e) {
-            e.getMessage();
-        }
+        int actual = calc.div(12, 2);
+        assertEquals(6, actual);
     }
 
     @Test
-    void multiply() throws Exception {
-        Calculator calc = new Calculator();
+    void divArithmeticExeption() {
+        System.out.println("Деление на ноль, ожидание исключения");
+        assertThrows(ArithmeticException.class, () -> calc.div(4, 0));
+    }
+
+
+    @Test
+    void multiply() {
         System.out.println("Тест умножения");
         int actual = calc.multiply(4, 2);
         assertEquals(8, actual);
     }
 
+
     @Test
-    void sub() throws Exception {
-        Calculator calc = new Calculator();
+    void sub() {
         System.out.println("Тест вычетания");
         int actual = calc.sub(100, 2);
         assertEquals(98, actual);
@@ -63,7 +61,7 @@ class CalculatorTest {
     @Test
     void dontEquals() {
         System.out.println("неравенство");
-        int actual = 100;
-        assertNotEquals(10, actual);
+        int actual = calc.sum(100, 100);
+        assertNotEquals(100, actual);
     }
 }
